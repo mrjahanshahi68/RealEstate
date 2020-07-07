@@ -1,0 +1,21 @@
+﻿@model DateTime
+@{
+    Layout = null;
+    ViewBag.Title = "Default Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Title</title>
+</head>
+<body>
+    <div>
+        <h1>@Title</h1>
+        <span>@Model.ToShamsi()</span>
+    </div>
+</body>
+</html>
+    
