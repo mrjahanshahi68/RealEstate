@@ -1,0 +1,104 @@
+﻿@{
+    Layout = "~/ClientApp/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-default" ng-controller="accountController" ng-init="init()">
+    <div class="panel-heading">
+        <span class="title">مدیریت کاربران</span>
+    </div>
+    <div class="panel-body" style="height:500px;">
+		<div class="k-rtl">
+			<div kendo-grid id="grid" k-ng-delay="gridOptions" k-options="gridOptions"></div>
+		</div>
+    </div>
+</div>
+   
+<script>
+	app.controller("accountController", function ($scope, dataService) {
+		
+        $scope.init = function () {
+            console.log("initial page")
+		}
+
+		$scope.gridOptions = {
+			dataSource: new kendo.data.DataSource({
+				transport: {
+					read: function (options) {
+						debugger;
+						dataService.getAll('security').then(function (result) {
+							options.success(result);
+						});
+					},
+					parameterMap: function (options) {
+						// debugger;
+					}
+				},
+				serverFiltering: true,
+				serverPaging: true,
+				serverSorting: true,
+				schema: {
+					data: function (e) {
+
+					},
+					total: function (e) {
+
+					},
+					model: {
+						id: "ID",
+						fields: {
+							ID: { type: "number", editable: false },
+							FirstName: { type: "string" },
+							LastName: { type: "string" },
+							NationalCode: { type: "string" },
+							Mobile: { type: "string" },
+							Address: { type: "string" },
+							UserName: { type: "string" },
+							IsActive: { type: "boolean" },
+							IsDeleted: { type: "boolean" },
+							//UserType: { type: "number" },
+							//RegisterDate: { type: "string" },
+						}
+					}
+				}
+			}),
+			sortable: true,
+			pageable: true,
+			scrollable: false,
+			columns:
+			[
+				{
+					title: "نام",
+					field: "FirstName",
+					width:100,
+				},
+				{
+					title: "نام خانوادگی",
+					field: "LastName",
+					width: 100,
+				},
+				{
+					title: "نام کاربری",
+					field: "UserName",
+					width:100
+				},
+				{
+					title: "کد ملی",
+					field: "NationalCode",
+					width: 100,
+				},
+				{
+					title: "وضعیت",
+					field: "IsActive",
+					width:70,
+				},
+				{
+					template: function (e) {
+
+					}
+				}
+			]
+		}
+
+		$scope.gridOptions.dataSource.read();
+    });
+</script>

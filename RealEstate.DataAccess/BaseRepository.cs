@@ -46,7 +46,6 @@ namespace RealEstate.DataAccess
 			_dbContext = dbContext;
 			_dbSet = _dbContext.Set<TEntity>();
 		}
-
 		#region Operations
 		public virtual void Delete(TEntity entityToDelete)
 		{

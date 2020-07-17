@@ -7,6 +7,7 @@ using RealEstate.Web.Infrastrcuture;
 using RealEstate.Web.Infrastrcuture.Filters;
 using RealEstate.Web.Models.Security;
 using RealEstate.Web.Security;
+using RealEstate.Web.Security.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ using static RealEstate.Common.AppEnums;
 
 namespace RealEstate.Web.Controllers.Api
 {
+	
     public class SecurityController : BaseApiController<User,UserVM>
 	{
         public  UserBusinessRule Rule => BusinessRule as UserBusinessRule;
@@ -54,5 +56,43 @@ namespace RealEstate.Web.Controllers.Api
 				return await  HandleExceptionAsync(ex);
 			}
 		}
+
+		[HttpPost]
+		[JwtAuthentication]
+		public async Task<HttpResponseMessage> Loggout()
+		{
+			try
+			{
+				if (IsAuthenticated)
+				{
+					SecurityManager.SignOut(Token);
+				}
+				return Success();
+			}
+			catch(Exception ex)
+			{
+				return await HandleExceptionAsync(ex);
+			}
+		}
+
+		[HttpPost]
+		[JwtAuthentication]
+		public async Task<HttpResponseMessage> RefereshToken(RefereshTokenRequest parameter)
+		{
+			try
+			{
+				if (IsAuthenticated)
+				{
+					var jwtToken = SecurityManager.GenerateToken(CurrentUser.Context.UserName);
+					return Success(jwtToken);
+				}
+				return Success(null);
+			}
+			catch(Exception ex)
+			{
+				return await HandleExceptionAsync(ex);
+			}
+		}
+
 	}
 }

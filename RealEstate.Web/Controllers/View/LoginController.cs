@@ -8,7 +8,6 @@ namespace RealEstate.Web.Controllers.View
 {
     public class LoginController : Controller
     {
-        // GET: Login
         public ActionResult Index()
         {
             return View();

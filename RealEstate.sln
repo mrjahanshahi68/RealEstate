@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.DataAccess", "Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.Domain", "RealEstate.Domain\RealEstate.Domain.csproj", "{048D9378-80F4-4403-88D4-97A720F407CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryDesigner", "QueryDesigner\QueryDesigner.csproj", "{D8A7C906-75F9-48B3-990F-3EB122B7990F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{048D9378-80F4-4403-88D4-97A720F407CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{048D9378-80F4-4403-88D4-97A720F407CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{048D9378-80F4-4403-88D4-97A720F407CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8A7C906-75F9-48B3-990F-3EB122B7990F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8A7C906-75F9-48B3-990F-3EB122B7990F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8A7C906-75F9-48B3-990F-3EB122B7990F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8A7C906-75F9-48B3-990F-3EB122B7990F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
