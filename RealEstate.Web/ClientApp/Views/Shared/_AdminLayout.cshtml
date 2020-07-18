@@ -3,14 +3,17 @@
 }
 
 @section head{
-<link href="~/ClientApp/Contents/bootstrap.css" rel="stylesheet" />
-<link href="~/ClientApp/Contents/nprogress.css" rel="stylesheet" />
+@*<link href="~/ClientApp/Contents/bootstrap.css" rel="stylesheet" />*@
 
 
 }
 <style>
 	html,body{
 		direction:rtl;
+		font-family:iranyekan;
+	}
+	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+		font-family: iranyekan;
 	}
 	nav {
 		height: 50px;
@@ -160,6 +163,17 @@
     background-color: #656a84;
     border-color: rgba(102, 107, 133, 0.82);
 }
+
+.modal{
+	overflow-y:auto;
+}
+	.grid-toolbar {
+		margin-bottom: 5px;
+	}
+
+	.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11 {
+		float: right;
+	}
 </style>
 <nav>
 	<a class="app-link">
@@ -245,7 +259,7 @@
 </footer>
 @section scripts{	
 @*<script src="~/ClientApp/Scripts/bootstrap.min.js"></script>*@
-<script src="~/ClientApp/Scripts/nprogress.js"></script>
+
 <script>
 	NProgress.start();
 	$(document).ready(function () {

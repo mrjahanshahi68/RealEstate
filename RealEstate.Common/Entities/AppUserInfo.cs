@@ -24,13 +24,13 @@ namespace RealEstate.Common.Entities
         }
         public virtual bool IsDeveloper()
         {
-            if (Context.UserType == UserTypes.Developers)
+            if (Context.UserType == UserTypes.Developer)
                 return true;
             return false;
         }
         public virtual bool IsAdminOrDeveloper()
         {
-            if (Context.UserType == UserTypes.Administrator || Context.UserType == UserTypes.Developers)
+            if (Context.UserType == UserTypes.Administrator || Context.UserType == UserTypes.Developer)
                 return true;
             return false;
         }
