@@ -19,7 +19,9 @@ namespace RealEstate.Common
 			public const string MissingToken = "Missing token";
 			public const string InvalidToken = "Invalid token";
             public const string ParameterIsNotDefined = "Parameters is not defined";
-            public const string Required = "{0} is required";
+			public const string InvalidIdentity = "کد شناسه نامعتبر می باشد";
+            public const string Required = "{0} اجباری می باشد";
+			public const string RecordNotFound = "رکورد مورد نظر یافت نشد";
 		}
 	}
 }

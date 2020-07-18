@@ -18,11 +18,13 @@ namespace RealEstate.Common
 		public enum UserTypes
 		{
 			Administrator = 1,
-			Students = 2,
-			Teachers = 3,
-			Advisers = 4,
-			Supporters = 5,
-			Developers = 1000,
+			User=2,
+			Developer=1000,
+			//Students = 2,
+			//Teachers = 3,
+			//Advisers = 4,
+			//Supporters = 5,
+			//Developers = 1000,
 		}
 		public enum ResultCode
 		{
