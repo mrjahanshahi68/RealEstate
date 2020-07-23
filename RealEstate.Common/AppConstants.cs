@@ -22,6 +22,8 @@ namespace RealEstate.Common
 			public const string InvalidIdentity = "کد شناسه نامعتبر می باشد";
             public const string Required = "{0} اجباری می باشد";
 			public const string RecordNotFound = "رکورد مورد نظر یافت نشد";
+			public const string Repetitious = "عنوان مورد نظر تکراری می باشد.";
+			public const string InvalidEmail = "فرمت پست الکترونیک صحیح نمی باشد .";
 		}
 	}
 }

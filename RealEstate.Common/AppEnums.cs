@@ -26,6 +26,11 @@ namespace RealEstate.Common
 			//Supporters = 5,
 			//Developers = 1000,
 		}
+
+		public enum Categories
+		{
+			Learning = 1,
+		}
 		public enum ResultCode
 		{
 			Success = 1,

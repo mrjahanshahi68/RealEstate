@@ -18,8 +18,12 @@ namespace RealEstate.DataAccess
 		{
 			#region Security
 			modelBuilder.Configurations.Add(new UserMapConfig());
+			modelBuilder.Configurations.Add(new PropertyTypeMapConfig());
 			modelBuilder.Configurations.Add(new RoleMapConfig());
 			modelBuilder.Configurations.Add(new UserRoleMapConfig());
+			modelBuilder.Configurations.Add(new ContactUsMapConfig());
+			modelBuilder.Configurations.Add(new MessageMapConfig());
+			modelBuilder.Configurations.Add(new BlogMapConfig());
 			#endregion
 
 			base.OnModelCreating(modelBuilder);

@@ -337,6 +337,14 @@ app.factory("helper", function (cacheManager) {
 				}
 			}
 		},
+		get Categories() {
+			return {
+				1: {
+					text: "آموزشی",
+					value: 1
+				}
+			}
+		},
 		
 	}
 	return helper;
@@ -362,7 +370,7 @@ app.service("messageService", function () {
 	}
 
 	function showMessage(text, title, messageType) {
-		toastr[messageType](text, "املاک معمار")
+		toastr[messageType](text, "املاک VIP")
 	}
 
 	this.success = function (text, title) {

@@ -101,9 +101,24 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ReferenceLibraries\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -114,21 +129,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Web.Razor">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages.Deployment">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages.Razor">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Helpers">
-      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
@@ -570,7 +570,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\ContactUsController.cs" />
+    <Compile Include="Controllers\Api\MessageController.cs" />
+    <Compile Include="Controllers\Api\BlogController.cs" />
+    <Compile Include="Controllers\Api\PropertyTypeController.cs" />
     <Compile Include="Controllers\Api\AccountController.cs" />
+    <Compile Include="Controllers\View\BlogController.cs" />
+    <Compile Include="Controllers\View\ContactUsController.cs" />
+    <Compile Include="Controllers\View\MessageController.cs" />
+    <Compile Include="Controllers\View\PropertyTypeController.cs" />
     <Compile Include="Controllers\View\AccountController.cs" />
     <Compile Include="Controllers\View\ProfileController.cs" />
     <Compile Include="Infrastrcuture\Cache\CacheManager.cs" />
@@ -598,7 +606,11 @@
     <Compile Include="Infrastrcuture\Log\LogManager.cs" />
     <Compile Include="Models\FilterQueryRsponse.cs" />
     <Compile Include="Models\Security\AuthenticateRequest.cs" />
+    <Compile Include="Models\Security\BlogVM.cs" />
+    <Compile Include="Models\Security\ContactUsVM.cs" />
+    <Compile Include="Models\Security\MessageVM.cs" />
     <Compile Include="Models\Security\RefereshTokenRequest.cs" />
+    <Compile Include="Models\Security\PropertyTypeVM.cs" />
     <Compile Include="Models\Security\UserVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastrcuture\Security\Filters\AddChallengeOnUnauthorizedResult.cs" />
@@ -841,6 +853,10 @@
     <Content Include="ClientApp\Contents\KendoUI\kendo.silver.mobile.min.css.map" />
     <Content Include="ClientApp\Contents\KendoUI\kendo.uniform.min.css.map" />
     <Content Include="ClientApp\Contents\KendoUI\kendo.uniform.mobile.min.css.map" />
+    <Content Include="ClientApp\Views\PropertyType\Index.cshtml" />
+    <Content Include="ClientApp\Views\ContactUs\Index.cshtml" />
+    <Content Include="ClientApp\Views\Message\Index.cshtml" />
+    <Content Include="ClientApp\Views\Blog\Index.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
