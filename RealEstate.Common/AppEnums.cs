@@ -34,6 +34,35 @@ namespace RealEstate.Common
 			UnAuthenticated = 4,
 			UnAuthorized = 5,
 		}
-		
+
+		public enum CustomerType
+		{
+			PropertyOwner=1,
+			PropertyApplicant=2,
+		}
+		public enum ObjectType
+		{
+			Property=1,
+		}
+		public enum DocumentType
+		{
+			Registered=1,
+
+		}
+		public enum TransactionType
+		{
+			Rent =1,
+			Sale =2,
+			PreSel=3,
+			Exchange=4,
+		}
+		public enum PropertyStatus
+		{
+			Submitted=1,
+			Approved=2,
+			Sold=3,
+			Leased= 4,
+			Rejected=5,
+		}
 	}
 }
