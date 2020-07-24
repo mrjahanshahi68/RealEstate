@@ -63,7 +63,7 @@ namespace RealEstate.Web.Infrastrcuture.Filters
 
             var response = new HttpResponseMessage
             {
-                StatusCode = HttpStatusCode.InternalServerError,
+                StatusCode = HttpStatusCode.OK,
                 Content = new ObjectContent(
                 typeof(ApiResult),
                 new ApiResult

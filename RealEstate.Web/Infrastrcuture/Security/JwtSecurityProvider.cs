@@ -13,6 +13,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
 using RealEstate.Web.Cache;
+using RealEstate.Common.Exceptions;
+using static RealEstate.Common.AppConstants;
 
 namespace RealEstate.Web.Security
 {
@@ -37,18 +39,12 @@ namespace RealEstate.Web.Security
 		}
         public void SignOut(string token)
 		{
-			
-			var tokenHandler = new JwtSecurityTokenHandler();
-			
 			var principle = GetPrinciple(token);
 			var userName = principle.Identity?.Name;
 			CacheManager.Remove(userName);
-			JwtSecurityToken ss = tokenHandler.ReadJwtToken(token);
-			
-			tokenHandler.WriteToken(ss);
 		}
 		
-        public  string GenerateToken(string userName, int expireMinutes = 20)
+        public  string GenerateToken(string userName, int expireMinutes = AppConstants.ExpireMinutes)
         {
            
             var symmetricKey = Convert.FromBase64String(Secret);
@@ -63,25 +59,18 @@ namespace RealEstate.Web.Security
             identity.AddClaim(new Claim("iss", AppConfigurations.Issuer));
 			var role =string.Join(",", currentUser.Roles.Select(e => e.Name).ToList());
 			identity.AddClaim(new Claim(ClaimTypes.Role,role));
-			//identity
-   //             .AddClaims(Enumerable
-   //             .Range(0, currentUser.Roles.Count)
-   //             .Select(i => new Claim(ClaimTypes.Role, currentUser.Roles[i].Name)));
+			
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject= identity,
-                //Subject = new ClaimsIdentity(new[]
-                //        {
-                //            new Claim(ClaimTypes.Name, userName),
-                //            new Claim("iss",AppConfigurations.Issuer)
-                //        }),
                 Expires = now.AddMinutes(expireMinutes),
                 SigningCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature, SecurityAlgorithms.Sha256Digest),
             };
 
             SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
             var jwtToken = tokenHandler.WriteToken(token);
+			
             return jwtToken;
         }
         public  ClaimsPrincipal GetPrinciple(string token)
@@ -102,7 +91,7 @@ namespace RealEstate.Web.Security
                     RequireExpirationTime = true,
                     ValidateAudience = false,
                     IssuerSigningKey = securityKey,
-                    ValidIssuer = ConfigurationManager.AppSettings["Issuer"],
+                    ValidIssuer = AppConfigurations.Issuer,
 					
                 };
 				
@@ -116,5 +105,24 @@ namespace RealEstate.Web.Security
             }
 
         }
-    }
+		public  DateTime GetRestOfExpiryDate(string token)
+		{
+			var tokenHandler = new JwtSecurityTokenHandler();
+			var jwtToken = tokenHandler.ReadToken(token) as JwtSecurityToken;
+			var tokenExpiryDate = jwtToken.ValidTo.ToLocalTime();
+			return tokenExpiryDate;
+			
+		}
+
+		public bool IsAuthenticated(string token)
+		{
+			var tokenExpiryDate = GetRestOfExpiryDate(token);
+			TimeSpan timeSpan = tokenExpiryDate - DateTime.Now;
+			var restOfExpireMinute = timeSpan.TotalMinutes;
+			if (restOfExpireMinute < 0)
+				return true;
+			return false;
+		}
+		
+	}
 }
