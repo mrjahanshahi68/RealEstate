@@ -78,4 +78,4 @@ _[Ss]cripts
 /.vs
 .vs/RealEstate/
 LogFiles
-
+*.csproj
