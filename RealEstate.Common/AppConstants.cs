@@ -8,6 +8,7 @@ namespace RealEstate.Common
 {
 	public static class AppConstants
 	{
+		public  const int ExpireMinutes = 20;
         public static class DatabaseSchema
         {
             public const string Security = "Security";
@@ -22,6 +23,7 @@ namespace RealEstate.Common
 			public const string InvalidIdentity = "کد شناسه نامعتبر می باشد";
             public const string Required = "{0} اجباری می باشد";
 			public const string RecordNotFound = "رکورد مورد نظر یافت نشد";
+			public const string TokenExpired = "توکن منقضی شده است";
 		}
 	}
 }

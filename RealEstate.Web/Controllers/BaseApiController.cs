@@ -14,6 +14,8 @@ using System.Data.Entity;
 using System.Linq;
 using RealEstate.Common.Exceptions;
 using static RealEstate.Common.AppConstants;
+using RealEstate.Web.Cache;
+using RealEstate.Web.Security;
 
 namespace RealEstate.Web.Controllers
 {
@@ -24,9 +26,9 @@ namespace RealEstate.Web.Controllers
         #region Properties
         private Mapper mapper { get; set; }
         protected IBusinessRule<TEntity> BusinessRule { get; set; }
-        public bool IsAuthenticated => RequestContext.Principal.Identity == null ? false : RequestContext.Principal.Identity.IsAuthenticated;
-        public string Token => Request.Headers.Authorization.Parameter;
-        public AppUserInfo CurrentUser => IsAuthenticated ? SessionStorage.Instance[Token] as AppUserInfo : throw new AuthenticationException("Not Athenticate");
+		public bool IsAuthenticated => SecurityManager.IsAuthenticated(Token);
+		public string Token => SecurityManager.GetToken(Request);
+        public AppUserInfo CurrentUser => IsAuthenticated ? CacheManager.GetValue(Token) as AppUserInfo : throw new AuthenticationException("Not Athenticate");
         #endregion
 
         protected abstract IBusinessRule<TEntity> CreateRule();

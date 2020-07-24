@@ -77,14 +77,16 @@ namespace RealEstate.Web.Controllers.Api
 
 		[HttpPost]
 		[JwtAuthentication]
-		public async Task<HttpResponseMessage> RefereshToken(RefereshTokenRequest parameter)
+		public async Task<HttpResponseMessage> RefereshToken()
 		{
 			try
 			{
 				if (IsAuthenticated)
 				{
-					var jwtToken = SecurityManager.GenerateToken(CurrentUser.Context.UserName);
-					return Success(jwtToken);
+					//var restOfExpireMinute = SecurityManager.GetRestOfExpiryAsMinute(Token);
+					//if(restOfExpireMinute<0)
+					//var jwtToken = SecurityManager.GenerateToken(CurrentUser.Context.UserName);
+					//return Success(jwtToken);
 				}
 				return Success(null);
 			}
