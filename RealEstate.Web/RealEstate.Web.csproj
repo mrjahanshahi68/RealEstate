@@ -15,7 +15,7 @@
     <RootNamespace>RealEstate.Web</RootNamespace>
     <AssemblyName>RealEstate.Web</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -533,9 +533,14 @@
     <Content Include="ClientApp\Contents\Login\vendor\select2\select2.js" />
     <Content Include="ClientApp\Contents\Login\vendor\select2\select2.min.css" />
     <Content Include="ClientApp\Contents\Login\vendor\select2\select2.min.js" />
+    <Content Include="ClientApp\Contents\ng-toggle-btn.css" />
     <Content Include="ClientApp\Contents\nprogress.css" />
     <Content Include="ClientApp\Contents\Toastr.css" />
+    <Content Include="ClientApp\Scripts\angular-animate.min.js" />
     <Content Include="ClientApp\Scripts\bootstrap.min.js" />
+    <Content Include="ClientApp\Scripts\moment-jalaali.js" />
+    <Content Include="ClientApp\Scripts\moment.js" />
+    <Content Include="ClientApp\Scripts\ng-toggle-btn.js" />
     <Content Include="ClientApp\Scripts\nprogress.js" />
     <Content Include="ClientApp\Scripts\toastr.min.js" />
     <Content Include="ClientApp\Contents\WebFonts\css\fontiran.css" />
@@ -591,6 +596,7 @@
     <Compile Include="Infrastrcuture\Log\FileLogger.cs" />
     <Compile Include="Infrastrcuture\Log\ILogger.cs" />
     <Compile Include="Infrastrcuture\Log\LogManager.cs" />
+    <Compile Include="Models\FilterQueryRsponse.cs" />
     <Compile Include="Models\Security\AuthenticateRequest.cs" />
     <Compile Include="Models\Security\RefereshTokenRequest.cs" />
     <Compile Include="Models\Security\UserVM.cs" />
@@ -875,6 +881,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
+<<<<<<< HEAD
 			<UseIIS>True</UseIIS>
 			<AutoAssignPort>True</AutoAssignPort>
 			<DevelopmentServerPort>65403</DevelopmentServerPort>
@@ -884,6 +891,17 @@
 			<UseCustomServer>False</UseCustomServer>
 			<CustomServerUrl>
 			</CustomServerUrl>
+=======
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65403</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/RealEstate</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+>>>>>>> 5cca8beaf13d1938ce15c40b653bf22057b0e8e9
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

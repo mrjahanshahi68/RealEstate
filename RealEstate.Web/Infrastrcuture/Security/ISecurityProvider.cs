@@ -10,11 +10,13 @@ namespace RealEstate.Web.Security
 {
 	public interface ISecurityProvider
 	{
-
+		bool IsAuthenticated(string token);
 		bool SignIn(string userName, string password);
 		void SignOut(string token);
         string GenerateToken(string userName, int expireMinutes = 20);
         ClaimsPrincipal GetPrinciple(string token);
+		DateTime GetRestOfExpiryDate(string token);
 
-    }
+
+	}
 }

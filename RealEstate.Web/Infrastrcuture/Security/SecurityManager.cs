@@ -9,6 +9,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
+using static RealEstate.Common.AppConstants;
+using RealEstate.Common.Exceptions;
 
 namespace RealEstate.Web.Security
 {
@@ -40,6 +42,26 @@ namespace RealEstate.Web.Security
             if (_provider == null) throw new NullReferenceException("Security provider not set");
             return _provider.GetPrinciple(token);
         }
-		
-    }
+		public static DateTime GetRestOfExpiryDate(string token)
+		{
+			if (_provider == null) throw new NullReferenceException("Security provider not set");
+			return _provider.GetRestOfExpiryDate(token);
+		}
+		public static double GetRestOfExpiryAsMinute(string token)
+		{
+			if (_provider == null) throw new NullReferenceException("Security provider not set");
+			var tokenExpiryDate = GetRestOfExpiryDate(token);
+			TimeSpan timeSpan = tokenExpiryDate - DateTime.Now;
+			return timeSpan.TotalMinutes;
+		}
+		public static bool IsAuthenticated(string token)
+		{
+			if (_provider == null) throw new NullReferenceException("Security provider not set");
+			return _provider.IsAuthenticated(token);
+		}
+		public static string GetToken(HttpRequestMessage request)
+		{
+			return request?.Headers?.Authorization?.Parameter;
+		}
+	}
 }

@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="~/ClientApp/Contents/Login/css/util.css">
 <link rel="stylesheet" type="text/css" href="~/ClientApp/Contents/Login/css/main.css">
 
-<div class="limiter">
+<div class="limiter" ng-controller="loginController" ng-init="init()">
 	<div class="container-login100">
 		<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
 			<form class="login100-form validate-form flex-sb flex-w">
@@ -32,7 +32,7 @@
 				</div>
 
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
+					<button ng-click="login()" class="login100-form-btn">
 						ورود
 					</button>
 				</div>
