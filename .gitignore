@@ -78,4 +78,5 @@ _[Ss]cripts
 /.vs
 .vs/RealEstate/
 LogFiles
-*.csproj
+storage.ide
+Databases
