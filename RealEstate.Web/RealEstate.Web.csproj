@@ -881,6 +881,17 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
+<<<<<<< HEAD
+			<UseIIS>True</UseIIS>
+			<AutoAssignPort>True</AutoAssignPort>
+			<DevelopmentServerPort>65403</DevelopmentServerPort>
+			<DevelopmentServerVPath>/</DevelopmentServerVPath>
+			<IISUrl>http://localhost/RealEstate</IISUrl>
+			<NTLMAuthentication>False</NTLMAuthentication>
+			<UseCustomServer>False</UseCustomServer>
+			<CustomServerUrl>
+			</CustomServerUrl>
+=======
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>65403</DevelopmentServerPort>
@@ -890,6 +901,7 @@
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
           </CustomServerUrl>
+>>>>>>> 5cca8beaf13d1938ce15c40b653bf22057b0e8e9
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
