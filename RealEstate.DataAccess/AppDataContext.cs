@@ -1,4 +1,6 @@
 ﻿using RealEstate.DataAccess.Security.MapConfigurations;
+using RealEstate.DataAccess.Public.MapConfigurations;
+using RealEstate.DataAccess.Property.MapConfigurations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -24,6 +26,7 @@ namespace RealEstate.DataAccess
 			modelBuilder.Configurations.Add(new ContactUsMapConfig());
 			modelBuilder.Configurations.Add(new MessageMapConfig());
 			modelBuilder.Configurations.Add(new BlogMapConfig());
+			modelBuilder.Configurations.Add(new WelfareMapConfig());
 			#endregion
 
 			base.OnModelCreating(modelBuilder);

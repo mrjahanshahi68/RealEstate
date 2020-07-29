@@ -573,11 +573,13 @@
     <Compile Include="Controllers\Api\ContactUsController.cs" />
     <Compile Include="Controllers\Api\MessageController.cs" />
     <Compile Include="Controllers\Api\BlogController.cs" />
+    <Compile Include="Controllers\Api\WelfareController.cs" />
     <Compile Include="Controllers\Api\PropertyTypeController.cs" />
     <Compile Include="Controllers\Api\AccountController.cs" />
     <Compile Include="Controllers\View\BlogController.cs" />
     <Compile Include="Controllers\View\ContactUsController.cs" />
     <Compile Include="Controllers\View\MessageController.cs" />
+    <Compile Include="Controllers\View\WelfareController.cs" />
     <Compile Include="Controllers\View\PropertyTypeController.cs" />
     <Compile Include="Controllers\View\AccountController.cs" />
     <Compile Include="Controllers\View\ProfileController.cs" />
@@ -605,12 +607,13 @@
     <Compile Include="Infrastrcuture\Log\ILogger.cs" />
     <Compile Include="Infrastrcuture\Log\LogManager.cs" />
     <Compile Include="Models\FilterQueryRsponse.cs" />
+    <Compile Include="Models\Property\WelfareVM.cs" />
     <Compile Include="Models\Security\AuthenticateRequest.cs" />
-    <Compile Include="Models\Security\BlogVM.cs" />
-    <Compile Include="Models\Security\ContactUsVM.cs" />
-    <Compile Include="Models\Security\MessageVM.cs" />
+    <Compile Include="Models\Public\BlogVM.cs" />
+    <Compile Include="Models\Public\ContactUsVM.cs" />
+    <Compile Include="Models\Public\MessageVM.cs" />
     <Compile Include="Models\Security\RefereshTokenRequest.cs" />
-    <Compile Include="Models\Security\PropertyTypeVM.cs" />
+    <Compile Include="Models\Property\PropertyTypeVM.cs" />
     <Compile Include="Models\Security\UserVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastrcuture\Security\Filters\AddChallengeOnUnauthorizedResult.cs" />
@@ -857,6 +860,7 @@
     <Content Include="ClientApp\Views\ContactUs\Index.cshtml" />
     <Content Include="ClientApp\Views\Message\Index.cshtml" />
     <Content Include="ClientApp\Views\Blog\Index.cshtml" />
+    <Content Include="ClientApp\Views\Welfare\Index.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -867,6 +871,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ClientApp\Views\ChangePassWord\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QueryDesigner\QueryDesigner.csproj">

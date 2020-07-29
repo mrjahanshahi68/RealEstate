@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstate.Common.Entities.Security
+namespace RealEstate.Common.Entities.Property
 {
 	public class PropertyType : LoggableEntity, ILogicalDeletable
 	{

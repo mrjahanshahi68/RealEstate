@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 
-namespace RealEstate.Web.Models.Security
+namespace RealEstate.Web.Models.Public
 {
     public class BlogVM
     {
@@ -14,7 +14,7 @@ namespace RealEstate.Web.Models.Security
 		public int? ViewNumber { get; set; }
 		public int? Sort { get; set; }
 		public string Discriminator { get; set; }
-		public short CategoryId { get; set; }
+		public short? CategoryId { get; set; }
 		public bool IsActive { get; set; }
 		public bool IsDeleted { get; set; }
 		public DateTime PublishDateTime { get; set; }

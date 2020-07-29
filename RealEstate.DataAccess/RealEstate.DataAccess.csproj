@@ -61,11 +61,12 @@
     <Compile Include="Log\MapConfigurations\ExceptionMapConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AppDataContext.cs" />
-    <Compile Include="Security\MapConfigurations\BlogMapConfig.cs" />
-    <Compile Include="Security\MapConfigurations\MessageMapConfig.cs" />
-    <Compile Include="Security\MapConfigurations\ContactUsMapConfig.cs" />
+    <Compile Include="Property\MapConfigurations\PropertyTypeMapConfig.cs" />
+    <Compile Include="Property\MapConfigurations\WelfareMapConfig.cs" />
+    <Compile Include="Public\MapConfigurations\BlogMapConfig.cs" />
+    <Compile Include="Public\MapConfigurations\ContactUsMapConfig.cs" />
+    <Compile Include="Public\MapConfigurations\MessageMapConfig.cs" />
     <Compile Include="Security\MapConfigurations\RoleMapConfig.cs" />
-    <Compile Include="Security\MapConfigurations\PropertyTypeMapConfig.cs" />
     <Compile Include="Security\MapConfigurations\UserMapConfig.cs" />
     <Compile Include="Security\MapConfigurations\UserRoleMapConfig.cs" />
     <Compile Include="UnitOfWork.cs" />
@@ -76,5 +77,6 @@
       <Name>RealEstate.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

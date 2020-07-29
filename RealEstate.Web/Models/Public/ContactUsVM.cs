@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RealEstate.Web.Models.Security
+namespace RealEstate.Web.Models.Public
 {
     public class ContactUsVM
     {

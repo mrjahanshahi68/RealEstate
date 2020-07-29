@@ -41,7 +41,7 @@
 </div>
 <script type="text/ng-template" id="popup-blog-info.html">
     <div ng-init="init()">
-        <div class="modal-header">
+        <div class="modal-header alert-info">
             <h3 class="modal-title" id="modal-title">{{modalTitle}}</h3>
         </div>
         <div class="modal-body" id="modal-body">
@@ -64,10 +64,6 @@
             <div class="col-xs-12 form-group">
                 <label class="control-label"> خلاصه : </label>
                 <textarea value="" class="form-control" ng-model="model.Summery" placeholder="خلاصه را وارد نمایید" />
-            </div>
-            <div class="col-xs-12 form-group">
-                <label class="control-label"> لینک خبر : </label>
-                <input type="text" value="" class="form-control" ng-model="model.SlugUrl" placeholder="لینک خبر در صورت وجود  را وارد نمایید" />
             </div>
             <div class="col-xs-12 form-group">
                 <label class="control-label"> لینک خبر : </label>
@@ -192,7 +188,7 @@
                     {
                         title: "عنوان ",
                         field: "Title",
-                        width: 450,
+                        width: 300,
                     },
                     {
                         title: "دسته بندی",
@@ -231,7 +227,7 @@
                             commandBtn += "<button class=\"btn btn-danger\" type=\"button\" ng-click=\"delete(dataItem)\">حذف</button>";
                             commandBtn += "<button class=\"btn btn-success\" type=\"button\" ng-click=\"showItem(dataItem)\">مشاهده جزئیات</button>";
                             return commandBtn;
-                            width: 260
+                            width: 400
                         }
                     }
                 ]
@@ -256,7 +252,7 @@
                 model: {
                     ID: data.ID,
                     Title: data.Title,
-                    Body: data.Body,
+                    Body:decodeURIComponent( data.Body),
                     Summery: data.Summery,
                     MetaDescription: data.MetaDescription,
                     SlugUrl: data.SlugUrl,

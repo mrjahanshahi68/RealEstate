@@ -6,12 +6,11 @@ using System.Web.Mvc;
 
 namespace RealEstate.Web.Controllers.View
 {
-    public class AccountController : Controller
+    public class WelfareController : Controller
     {
         // GET: Account
         public ActionResult Index()
         {
-
             return View();
         }
     }

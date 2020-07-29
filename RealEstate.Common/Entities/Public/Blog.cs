@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using static RealEstate.Common.AppEnums;
 
-namespace RealEstate.Common.Entities.Security
+namespace RealEstate.Common.Entities.Public
 {
 	public class Blog : LoggableEntity, ILogicalDeletable
 	{

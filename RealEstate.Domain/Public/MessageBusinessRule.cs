@@ -1,13 +1,13 @@
-﻿using RealEstate.Common.Entities.Security;
+﻿using RealEstate.Common.Entities.Public;
 using RealEstate.DataAccess;
-using RealEstate.DataAccess.Security;
+using RealEstate.DataAccess.Public;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstate.Domain.Security
+namespace RealEstate.Domain.Public
 {
 	public class MessageBusinessRule : BaseBusinessRule<Message>
 	{

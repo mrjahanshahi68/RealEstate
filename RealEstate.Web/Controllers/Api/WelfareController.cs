@@ -19,13 +19,13 @@ using RealEstate.Web.Models;
 namespace RealEstate.Web.Controllers.Api
 {
 	[JwtAuthentication]
-    public class PropertyTypeController : BaseApiController<PropertyType, PropertyTypeVM>
+    public class WelfareController : BaseApiController<Welfare, WelfareVM>
     {
-		protected override IBusinessRule<PropertyType> CreateRule() => new PropertyTypeBusinessRule();
+		protected override IBusinessRule<Welfare> CreateRule() => new WelfareBusinessRule();
 
 		#region Operations
 		[HttpPost]
-		public async Task<HttpResponseMessage> GetPropertyTypes(FilterContainer filter)
+		public async Task<HttpResponseMessage> GetWelfares(FilterContainer filter)
 		{
 			try
 			{
@@ -61,11 +61,11 @@ namespace RealEstate.Web.Controllers.Api
 		#endregion
 
 		#region Validations
-		protected override List<string> InsertValidation(PropertyTypeVM viewmodel)
+		protected override List<string> InsertValidation(WelfareVM viewmodel)
 		{
 			var errors = new List<string>();
 			if (string.IsNullOrWhiteSpace(viewmodel.Name))
-				errors.Add(string.Format(MessageTemplate.Required, " نوع ملک "));
+				errors.Add(string.Format(MessageTemplate.Required, " عنوان "));
 			var entityByName = BusinessRule.Queryable()
 				.SingleOrDefault(c => c.Name == viewmodel.Name);
 
@@ -76,7 +76,7 @@ namespace RealEstate.Web.Controllers.Api
 
 		}
 
-		protected override List<string> UpdateValidation(PropertyTypeVM viewmodel)
+		protected override List<string> UpdateValidation(WelfareVM viewmodel)
 		{
 			var errors = new List<string>();
 			if (viewmodel.ID <= 0)
@@ -84,7 +84,7 @@ namespace RealEstate.Web.Controllers.Api
 			var entity = BusinessRule.FindEntity(viewmodel.ID);
 			if (entity == null) throw new Exception("رکورد مورد نظر یافت نشد");
 			if (string.IsNullOrWhiteSpace(viewmodel.Name))
-				errors.Add(string.Format(MessageTemplate.Required, " نوع ملک "));
+				errors.Add(string.Format(MessageTemplate.Required, " عنوان "));
 
 			var entityByName = BusinessRule.Queryable()
 				.SingleOrDefault(c=> c.ID != viewmodel.ID && c.Name == viewmodel.Name);

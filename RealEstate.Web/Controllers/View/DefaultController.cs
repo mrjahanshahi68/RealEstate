@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RealEstate.Common.Entities.Security;
+using RealEstate.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +13,11 @@ namespace RealEstate.Web.Controllers.View
         // GET: Default
         public ActionResult Index()
         {
+            using(var uow=new AppUnitOfWork())
+            {
+
+                //var vm=uow.Repository<Blog>().Queryable().ToList();
+            }
             return View(DateTime.Now);
         }
     }

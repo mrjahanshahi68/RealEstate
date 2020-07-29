@@ -1,13 +1,13 @@
-﻿using RealEstate.Common.Entities.Security;
+﻿using RealEstate.Common.Entities.Property;
 using RealEstate.DataAccess;
-using RealEstate.DataAccess.Security;
+using RealEstate.DataAccess.Property;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstate.Domain.Security
+namespace RealEstate.Domain.Property
 {
 	public class PropertyTypeBusinessRule : BaseBusinessRule<PropertyType>
 	{

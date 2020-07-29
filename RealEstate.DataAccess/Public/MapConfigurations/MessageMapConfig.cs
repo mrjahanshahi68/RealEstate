@@ -1,4 +1,4 @@
-﻿using RealEstate.Common.Entities.Security;
+﻿using RealEstate.Common.Entities.Public;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static RealEstate.Common.AppConstants;
 
-namespace RealEstate.DataAccess.Security.MapConfigurations
+namespace RealEstate.DataAccess.Public.MapConfigurations
 {
 	public class MessageMapConfig : LoggableEntityMapConfig<Message>
 	{

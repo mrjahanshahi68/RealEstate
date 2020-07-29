@@ -1,4 +1,4 @@
-﻿using RealEstate.Common.Entities.Security;
+﻿using RealEstate.Common.Entities.Public;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +6,10 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using RealEstate.Domain;
-using RealEstate.Domain.Security;
+using RealEstate.Domain.Public;
 using System.Threading.Tasks;
 using RealEstate.Web.Security.Filters;
-using RealEstate.Web.Models.Security;
+using RealEstate.Web.Models.Public;
 using static RealEstate.Common.AppConstants;
 using QueryDesigner;
 using System.Data.Entity;
@@ -70,7 +70,7 @@ namespace RealEstate.Web.Controllers.Api
 				errors.Add(string.Format(MessageTemplate.Required, " متن "));
 			if (string.IsNullOrWhiteSpace(viewmodel.Summery))
 				errors.Add(string.Format(MessageTemplate.Required, " خلاصه  "));
-			if (viewmodel.CategoryId == 0)
+			if (!viewmodel.CategoryId.HasValue)
 				errors.Add(string.Format(MessageTemplate.Required, " دسته بندی "));
 
 			var entityByName = BusinessRule.Queryable()

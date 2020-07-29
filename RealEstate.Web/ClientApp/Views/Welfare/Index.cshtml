@@ -18,13 +18,13 @@
 		text-align: center;
 	}*/
 </style>
-<div class="panel panel-default" ng-controller="propertyTypeController" ng-init="init()">
+<div class="panel panel-default" ng-controller="welfareController" ng-init="init()">
     <div class="panel-heading">
-        <span class="title">مدیریت انواع ملک</span>
+        <span class="title">مدیریت امکانات رفاهی</span>
     </div>
     <div class="panel-body" style="height:500px;">
 		<div class="grid-toolbar">
-			<button type="button" class="btn btn-primary" ng-click="createPropertyType()">ثبت انواع ملک</button>
+			<button type="button" class="btn btn-primary" ng-click="createWelfare()">ثبت امکانات رفاهی</button>
 		</div>
 		<div class="k-rtl" id="window">
 			<div kendo-grid id="grid" k-ng-delay="gridOptions" k-options="gridOptions"></div>
@@ -32,7 +32,7 @@
     </div>
 
 </div>
- <script type="text/ng-template" id="popup-propertyType.html">
+ <script type="text/ng-template" id="popup-welfare.html">
 	 <div ng-init="init()">
 		<div class="modal-header">
 			<h3 class="modal-title" id="modal-title">{{modalTitle}}</h3>
@@ -40,7 +40,7 @@
 		<div class="modal-body" id="modal-body">
 			<div class="col-xs-12 form-group">
 				<label class="control-label"> نام : </label>
-				<input type="text" value="" class="form-control" ng-model="model.Name" placeholder="عنوان را وارد نمایید" />
+                <input type="text" value="" class="form-control" ng-model="model.Name" placeholder="عنوان را وارد نمایید" />
 			</div>
 			<div class="col-xs-12 form-group">
 				<label class="control-label col-xs-4">وضعیت : </label>
@@ -55,7 +55,7 @@
  	
  </script>
 <script>
-    app.controller("propertyTypeController", function ($scope, $uibModal, dataService, messageService,helper) {
+    app.controller("welfareController", function ($scope, $uibModal, dataService, messageService,helper) {
 		$scope.name = 'World';
 		$scope.model = {
 			Name: null,
@@ -75,14 +75,13 @@
 				transport: {
 					read: function (options) {
 						var filterParameter = helper.translateToFilterParameter(options.data);
-						console.log(options);
-                        dataService.filterBy('propertyType/GetPropertyTypes', filterParameter).then(function (result) {
+					
+                        dataService.filterBy('welfare/GetWelfares', filterParameter).then(function (result) {
 							options.success(result);
 						});
 					},
 					parameterMap: function (options) {
-						// debugger;
-						console.log(options);
+						
 					}
 				},
 				pageSize:20,
@@ -161,10 +160,10 @@
 			]
 		}
 
-		$scope.createPropertyType = function () {
-			showPropertyTypeInfo({
+		$scope.createWelfare = function () {
+			showWelfareInfo({
 				callback: function (model, closePopup) {
-                    dataService.insertEntity("propertyType", model).then(function (item) {
+                    dataService.insertEntity("welfare", model).then(function (item) {
 						messageService.success("عملیات با موفقیت ثبت گردید");
 						$scope.model.clear();
 						$scope.gridOptions.dataSource.read();
@@ -175,18 +174,18 @@
 			})
 		}
 		$scope.edit = function (data) {
-			showPropertyTypeInfo({
+			showWelfareInfo({
 				model: {
 					ID: data.ID,
 					Name: data.Name,
 					IsActive: data.IsActive
 				},
 				callback: function (model, closePopup) {
-					dataService.updateEntity("propertyType", model).then(function (item) {
+					dataService.updateEntity("welfare", model).then(function (item) {
 						messageService.success("عملیات با موفقیت ثبت گردید");
                         $scope.model.clear();
-						closePopup();
 						$scope.gridOptions.dataSource.read();
+                        closePopup();
 					});
 					//closePopup();
 				}
@@ -196,16 +195,16 @@
 			var id = data.ID;
 			var cnf = confirm("آیا مطمئن هستید؟");;
 			if (cnf) {
-				dataService.deleteEntity("propertyType", id).then(function () {
+				dataService.deleteEntity("welfare", id).then(function () {
 					messageService.success("عملیات با موفقیت حذف گردید");
 					$scope.gridOptions.dataSource.read();
 				})
 			}
 		}
-		function showPropertyTypeInfo(parameters) {
+		function showWelfareInfo(parameters) {
 			$uibModal.open({
 				animation: true,
-                templateUrl: "popup-propertyType.html",
+                templateUrl: "popup-welfare.html",
 				controller: function ($scope, $uibModalInstance, controllerScope) {
 					$scope.temp = {
 						isEditMode:false,
@@ -218,7 +217,7 @@
 					}
 					$scope.init = function () {
 						if ($scope.temp.isEditMode) {
-							$scope.modalTitle = "وایرایش نوع ملک";
+							$scope.modalTitle = "وایرایش امکانات رفاهی";
 						}
 						else {
 							$scope.modalTitle = "ثبت ملک";

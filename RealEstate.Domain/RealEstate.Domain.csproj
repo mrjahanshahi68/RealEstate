@@ -52,11 +52,12 @@
     <Compile Include="IBusinessRule.cs" />
     <Compile Include="Log\ExceptionBusinessRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\BlogBusinessRule.cs" />
-    <Compile Include="Security\MessageBusinessRule.cs" />
-    <Compile Include="Security\ContactUsBusinessRule.cs" />
+    <Compile Include="Property\WelfareBusinessRule.cs" />
+    <Compile Include="Public\BlogBusinessRule.cs" />
+    <Compile Include="Public\MessageBusinessRule.cs" />
+    <Compile Include="Public\ContactUsBusinessRule.cs" />
     <Compile Include="Security\RoleBusinessRule.cs" />
-    <Compile Include="Security\PropertyTypeBusinessRule.cs" />
+    <Compile Include="Property\PropertyTypeBusinessRule.cs" />
     <Compile Include="Security\UserBusinessRule.cs" />
   </ItemGroup>
   <ItemGroup>
